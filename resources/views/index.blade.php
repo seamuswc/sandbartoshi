@@ -58,7 +58,7 @@
                 const marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
-                    title: firstProperty.title
+                    title: firstProperty.title,
                 });
 
                 let infoWindowContent = '';
