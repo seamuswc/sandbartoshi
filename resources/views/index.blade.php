@@ -34,7 +34,7 @@
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
+                zoom: 16,
                 center: { lat: 33.5858, lng: 130.4089 }, // Fukuoka default
                 gestureHandling: 'greedy',
                 mapTypeControl: false
@@ -82,7 +82,7 @@
         // Function to zoom and center the map at a given latitude and longitude
         function zoomToLocation(lat, lng) {
             map.setCenter({ lat: lat, lng: lng });
-            map.setZoom(15);
+            map.setZoom(16);
         }
     </script>
 
