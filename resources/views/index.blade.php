@@ -29,10 +29,10 @@
     <footer>
         <div class="footer-content">
             <div>
-                <span>住所: 福岡市博多駅前４丁目２４−１ シティハウス #303</span>
+                <span>福岡市博多駅前４丁目２４−１ シティハウス #303</span>
             </div>
             <div>
-                <span>電話番号: +81 050 1720 6334</span>
+                <span>+81 050 1720 6334</span>
             </div>
             <div>
                 <span>代表取締役: シーマス・コノリー</span>
