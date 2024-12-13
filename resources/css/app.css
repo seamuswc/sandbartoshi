@@ -63,7 +63,9 @@ footer .footer-content > div {
 /* Responsive Styles */
 @media (max-width: 768px) {
     .map-links {
-        display: none !important;
+        display: flex; /* Ensure map links are visible on mobile */
+        justify-content: center;
+        margin-top: 10px;
     }
 
     header {

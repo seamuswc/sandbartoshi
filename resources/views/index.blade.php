@@ -43,9 +43,13 @@
     <script>
         let map;
 
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 16,
+                zoom: isMobile() ? 15 : 16,
                 center: { lat: 33.5858, lng: 130.4089 }, // Fukuoka default
                 gestureHandling: 'greedy',
                 mapTypeControl: false
@@ -90,10 +94,9 @@
             });
         }
 
-        // Function to zoom and center the map at a given latitude and longitude
         function zoomToLocation(lat, lng) {
             map.setCenter({ lat: lat, lng: lng });
-            map.setZoom(16);
+            map.setZoom(isMobile() ? 15 : 16); // Adjust zoom based on device
         }
     </script>
 
