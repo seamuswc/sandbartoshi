@@ -29,7 +29,7 @@
     <footer>
         <div class="footer-content">
             <div>
-                <span>福岡市博多駅前４丁目２４−１ シティハウス #303</span>
+                <span>福岡市博多駅前４丁目２４−１ #303</span>
             </div>
             <div>
                 <span>+81 050 1720 6334</span>
