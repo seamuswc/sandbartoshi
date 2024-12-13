@@ -47,17 +47,20 @@ header .map-links a {
     cursor: pointer;
 }
 
-header .contact-info {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
 }
 
-header .contact-info span {
-    margin-right: 15px;
+footer .footer-content > div {
+    margin: 5px 0;
 }
 
-/* Hide Map Links on Mobile */
+/* Responsive Styles */
 @media (max-width: 768px) {
     .map-links {
         display: none !important;

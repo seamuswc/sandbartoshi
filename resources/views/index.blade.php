@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Real Estate Listings</title>
+    <title>サンドバー</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -19,15 +20,25 @@
             <a onclick="zoomToLocation(33.5858, 130.4089)">福岡</a> <!-- Fukuoka -->
             <a onclick="zoomToLocation(35.6886, 139.7106)">東京</a> <!-- Tokyo -->
         </div>
-
-        <!-- Contact Info -->
-        <div class="contact-info">
-            <span class="phone-number">+81 050 1720 6334</span>
-        </div>
     </header>
 
     <!-- Map -->
     <div id="map"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <span>住所: 福岡市博多駅前４丁目２４−１ シティハウス #303</span>
+            </div>
+            <div>
+                <span>電話番号: +81 050 1720 6334</span>
+            </div>
+            <div>
+                <span>代表取締役: シーマス・コノリー</span>
+            </div>
+        </div>
+    </footer>
 
     <script>
         let map;
@@ -58,7 +69,7 @@
                 const marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
-                    title: firstProperty.title,
+                    title: firstProperty.title
                 });
 
                 let infoWindowContent = '';
