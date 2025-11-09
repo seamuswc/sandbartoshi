@@ -29,9 +29,7 @@
     <footer>
         <div class="footer-content">
             <div>
-                <div>福岡市中央区渡辺通２丁目3-8</div>
-                <div>渡辺通カステリア #504</div>
-                <div>810-0004</div>
+                <span>〒810-0004 福岡市中央区渡辺通２丁目3-8 #504</span>
             </div>
             <div>
                 <span>+81 050 1720 6334</span>
