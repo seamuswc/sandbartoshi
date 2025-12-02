@@ -5,7 +5,6 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
@@ -101,6 +100,6 @@
     </script>
 
     <!-- Include Google Maps API -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt9g5VppVNA7VoBB5SgoPwnMQtP6-_Cgk&callback=initMap"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt9g5VppVNA7VoBB5SgoPwnMQtP6-_Cgk&loading=async&callback=initMap"></script>
 </body>
 </html>
