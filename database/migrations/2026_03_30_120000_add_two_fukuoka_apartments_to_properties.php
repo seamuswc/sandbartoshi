@@ -10,8 +10,8 @@ return new class extends Migration
     private const LNG = '130.400754045393';
 
     private const TITLES = [
-        'New apartment — 25 sqm (1)',
-        'New apartment — 25 sqm (2)',
+        '東峰マンション薬院（1）',
+        '東峰マンション薬院（2）',
     ];
 
     public function up(): void
@@ -33,8 +33,8 @@ return new class extends Migration
                 'size' => 25,
                 'lat' => self::LAT,
                 'lng' => self::LNG,
-                'building' => 'Fukuoka',
-                'description' => 'New 25 sqm investment apartment. Update price and building details in the admin panel.',
+                'building' => '東峰マンション薬院',
+                'description' => '薬院エリア 25㎡（必要に応じて管理画面で価格・説明を更新してください）',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
