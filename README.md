@@ -1,8 +1,57 @@
 # Sandbartoshi
 
-Property map for **サンドバー投資株式会社**. One page — a Google Map with pins. No admin, no property pages.
+Map for サンドバー投資株式会社. Edit `data/properties.json`, restart app.
 
-Edit listings in **`data/properties.json`**, then restart the app.
+---
+
+## Local
+
+```bash
+cd ~/Desktop/sandbartoshi
+cp .env.example .env
+npm install
+npm start
+```
+
+http://localhost:3000
+
+---
+
+## Digital Ocean (run on the server after SSH)
+
+```bash
+apt update && apt upgrade -y
+apt install -y git nginx
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt install -y nodejs
+```
+
+```bash
+mkdir -p /var/www
+cd /var/www
+git clone https://github.com/seamuswc/sandbartoshi.git
+cd sandbartoshi
+cp .env.example .env
+npm install --omit=dev
+```
+
+```bash
+cp deploy/sandbartoshi.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable sandbartoshi
+systemctl start sandbartoshi
+systemctl status sandbartoshi
+```
+
+```bash
+cp deploy/nginx.conf.example /etc/nginx/sites-available/sandbartoshi
+ln -sf /etc/nginx/sites-available/sandbartoshi /etc/nginx/sites-enabled/sandbartoshi
+rm -f /etc/nginx/sites-enabled/default
+nginx -t
+systemctl reload nginx
+```
+
+In Namecheap: A record → Droplet IP. HTTPS via Namecheap (not certbot on this server).
 
 ---
 
@@ -21,92 +70,10 @@ Edit `data/properties.json`:
 ]
 ```
 
-- **title** — name shown on the map popup
-- **size** — square metres (shown as `sqm`)
-- **lat / lng** — from Google Maps (right-click → copy coordinates)
-
-Properties at the **same lat/lng share one pin**. The popup lists each unit at that address.
-
-Restart after edits: `npm start` (or `systemctl restart sandbartoshi` on the server).
-
----
-
-## Local setup
+Same lat/lng = one pin, multiple names in the popup.
 
 ```bash
-cd sandbartoshi
-cp .env.example .env
-npm install
-npm start
-```
-
-Open **http://localhost:3000**
-
----
-
-## Digital Ocean — server setup
-
-### 1. Create a Droplet
-
-- **Image:** Ubuntu 24.04
-- **Size:** Basic $6/mo (1 GB RAM) is enough
-- Add your SSH key
-
-### 2. Point your domain (optional)
-
-| Type | Name | Value |
-|------|------|-------|
-| A | `@` or `www` | Your Droplet IP |
-
-### 3. SSH in
-
-```bash
-ssh root@YOUR_DROPLET_IP
-```
-
-### 4. Install Node.js
-
-```bash
-apt update && apt upgrade -y
-apt install -y git nginx certbot python3-certbot-nginx
-curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-apt install -y nodejs
-```
-
-### 5. Clone the app
-
-```bash
-mkdir -p /var/www
-cd /var/www
-git clone YOUR_GIT_REPO_URL sandbartoshi
-cd sandbartoshi
-cp .env.example .env
-npm install --omit=dev
-```
-
-### 6. Start with systemd
-
-```bash
-cp deploy/sandbartoshi.service /etc/systemd/system/
-systemctl daemon-reload
-systemctl enable sandbartoshi
-systemctl start sandbartoshi
-```
-
-### 7. Nginx
-
-```bash
-cp deploy/nginx.conf.example /etc/nginx/sites-available/sandbartoshi
-nano /etc/nginx/sites-available/sandbartoshi   # set your domain
-ln -s /etc/nginx/sites-available/sandbartoshi /etc/nginx/sites-enabled/
-rm -f /etc/nginx/sites-enabled/default
-nginx -t && systemctl reload nginx
-```
-
-### 8. HTTPS
-
-```bash
-certbot --nginx -d your-domain.com
+systemctl restart sandbartoshi
 ```
 
 ---
@@ -115,17 +82,18 @@ certbot --nginx -d your-domain.com
 
 ```bash
 cd /var/www/sandbartoshi
-git pull
+git pull origin main
 npm ci --omit=dev
-sudo systemctl restart sandbartoshi
+systemctl restart sandbartoshi
 ```
 
 ---
 
-## Troubleshooting
+## If map is blank
 
-**Map is blank** — check browser console for Google Maps API errors.
+Browser console → Google Maps errors.
 
-**502 Bad Gateway** — `systemctl status sandbartoshi` and `journalctl -u sandbartoshi -n 50`.
-
-**Pin missing** — check `lat`/`lng` in `data/properties.json` and restart the app.
+```bash
+systemctl status sandbartoshi
+journalctl -u sandbartoshi -n 50
+```
