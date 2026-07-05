@@ -23,6 +23,7 @@ export function renderMapPage(properties, mapsKey) {
     <div class="logo">サンドバー投資株式会社</div>
     <div class="map-links">
       <a onclick="zoomToLocation(33.5858, 130.4089)">福岡</a>
+      <a onclick="zoomToLocation(33.8864, 130.8826)">北九州</a>
       <a onclick="zoomToLocation(35.6886, 139.7106)">東京</a>
     </div>
   </header>
@@ -32,7 +33,7 @@ export function renderMapPage(properties, mapsKey) {
   <footer>
     <div class="footer-content">
       <div>〒810-0004 福岡市中央区渡辺通２丁目3-8 #504</div>
-      <div>+81 050 1720 6334</div>
+      <div><a class="footer-phone" href="tel:+815017206334">050 1720 6334</a></div>
       <div>代表取締役: シーマス・コノリー</div>
     </div>
   </footer>

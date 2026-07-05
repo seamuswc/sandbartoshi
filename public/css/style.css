@@ -54,6 +54,11 @@ footer .footer-content > div {
   margin: 5px 0;
 }
 
+footer a.footer-phone {
+  color: #fff;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
