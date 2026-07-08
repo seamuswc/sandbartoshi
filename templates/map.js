@@ -22,7 +22,7 @@ export function renderMapPage(properties, mapsKey) {
   <header>
     <div class="logo">サンドバー投資株式会社</div>
     <div class="map-links">
-      <a onclick="zoomToLocation(33.5858, 130.4089)">福岡</a>
+      <a onclick="zoomToLocation(33.5858, 130.4059)">福岡</a>
       <a onclick="zoomToLocation(33.8864, 130.8826)">北九州</a>
       <a onclick="zoomToLocation(35.6886, 139.7106)">東京</a>
     </div>
@@ -48,7 +48,7 @@ export function renderMapPage(properties, mapsKey) {
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: isMobile() ? 15 : 16,
-        center: { lat: 33.5858, lng: 130.4089 },
+        center: { lat: 33.5858, lng: 130.4059 },
         gestureHandling: 'greedy',
         mapTypeControl: false
       });
