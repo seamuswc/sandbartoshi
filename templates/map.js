@@ -48,7 +48,7 @@ export function renderMapPage(properties, mapsKey) {
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: isMobile() ? 15 : 16,
-        center: { lat: 33.5858, lng: 130.4089 },
+        center: { lat: 33.5858, lng: 130.3489 },
         gestureHandling: 'greedy',
         mapTypeControl: false
       });
